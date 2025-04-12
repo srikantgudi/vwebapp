@@ -65,15 +65,15 @@ pub fn (app &App) orderdetails(mut ctx Context, orderid string, custid string) v
 	mut res := app.db.exec_map('Select od.orderid, p.productname, od.quantity, od.unitprice from orderdetails od Join products p on p.productid = od.productid where od.orderid= ${orderid}') or {
 		panic(err)
 	}
-	return $veb.html('orderdetails.html')
+	return $veb.html('orderdetails')
 }
 
-pub fn (app &App) hello(mut ctx Context) veb.Result {
-	return ctx.text('Hello vlang')
+pub fn (app &App) clock(mut ctx Context) veb.Result {
+	return $veb.html('clock')
 }
 
 pub fn (app &App) contact(mut ctx Context) veb.Result {
-	return ctx.text('Contact page')
+	return $veb.html('contact')
 }
 
 fn main() {

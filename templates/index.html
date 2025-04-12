@@ -41,17 +41,31 @@
             tbody tr:hover {
                 background-color: #ddd;
             }
+            #content {
+                margin-top: 2rem;
+            }
+            nav {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            a {
+                box-shadow: inset 0 0 2px #666;
+                padding: 4px 8px;
+            }
         </style>
     </head>
     <body>
         <h1>${apptitle}</h1>
         <nav>
             <a class="hand" href="/">Home</a>
-            [<a class="hand" hx-get="/categories" hx-target="#content"
+            <a class="hand" hx-get="/categories" hx-target="#content"
                 >Categories -> Products</a
-            >] [<a class="hand" hx-get="/customers" hx-target="#content"
+            ><a class="hand" hx-get="/customers" hx-target="#content"
                 >Customers -> Orders -> Details</a
-            >]
+            >
+            <a class="hand" hx-get="/contact" hx-target="#content">Contact</a>
+            <a class="hand" hx-get="/clock" hx-target="#content">Clock</a>
         </nav>
         <div id="content">-- content replaced here --</div>
     </body>

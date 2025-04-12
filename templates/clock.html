@@ -1,0 +1,77 @@
+<style>
+    #thr,
+    #tmi {
+        transition: all 0.5s;
+    }
+</style>
+<div style="margin-top: 2rem">
+    <h2>
+        Clock ::
+        <span id="zname" style="font-size: 2rem; font-weight: 400"></span>
+    </h2>
+    <div>
+        <button onclick="showtime('America/Los_Angeles')">US-West</button>
+        <button onclick="showtime('America/New_York')">US-East</button>
+        <button onclick="showtime('Europe/London')">U.K.</button>
+        <button onclick="showtime('Europe/Paris')">France</button>
+        <button onclick="showtime('Europe/Berlin')">Germany</button>
+        <button onclick="showtime('Europe/Moscow')">Moscow</button>
+        <button onclick="showtime('Asia/Kolkata')">India</button>
+        <button onclick="showtime('Asia/Tokyo')">Japan</button>
+        <button onclick="showtime('Pacific/Auckland')">New Zealand</button>
+    </div>
+    <div style="margin-top: 1rem" id="ztime"></div>
+    <div style="margin-top: 1rem" id="clock">
+        <svg height="400" viewBox="-50 -50 100 100">
+            <circle r="49" fill="lightcyan" />
+            <line
+                id="thr"
+                x1="-4"
+                x2="32"
+                stroke="navy"
+                stroke-linecap="round"
+            />
+            <line
+                id="tmi"
+                x1="-4"
+                x2="42"
+                stroke="navy"
+                stroke-linecap="round"
+            />
+        </svg>
+    </div>
+</div>
+<script>
+    function showtime(zone) {
+        document.querySelector("#zname").innerHTML = zone;
+        let zt = new Date(
+            new Date().toLocaleString("en-US", { timeZone: zone }),
+        );
+        const zhr = zt.getHours();
+        const angh = zhr * 30 + zt.getMinutes() / 2 - 90;
+        const angm = zt.getMinutes() * 6 + zt.getSeconds() / 10 - 90;
+        const clr =
+            zhr < 6
+                ? "#666"
+                : zhr < 12
+                  ? "blue"
+                  : zhr < 18
+                    ? "seagreen"
+                    : "navy";
+        document.querySelector("#thr").setAttribute("stroke", clr);
+        document
+            .querySelector("#thr")
+            .setAttribute("transform", "rotate(" + angh + ")");
+        document.querySelector("#tmi").setAttribute("stroke", clr);
+        document
+            .querySelector("#tmi")
+            .setAttribute("transform", "rotate(" + angm + ")");
+
+        let ztime = new Intl.DateTimeFormat("en-US", {
+            dateStyle: "full",
+            timeStyle: "long",
+        }).format(zt);
+        document.querySelector("#ztime").innerHTML = ztime;
+    }
+    showtime("Asia/Kolkata");
+</script>
