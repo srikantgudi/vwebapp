@@ -1,0 +1,26 @@
+<div style="display: grid;grid-template-columns: 1fr 2fr;gap:1rem;">
+    <div>
+        <h2>Orders</h2>
+        <div style="height: 70vh; overflow-y: auto">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Order Id</td>
+                        <td>Order date</td>
+                        <td>Shipped date</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for r in res
+                    <tr class="hand" hx-get="/orderdetails/${r["orderid"]}/${custid}" hx-target="#odetails">
+                        <td>${r["orderid"]}</td>
+                        <td>${r["orderdate"]}</td>
+                        <td>${r["shippeddate"]}</td>
+                    </tr>
+                    @end
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="odetails"></div>
+</div>

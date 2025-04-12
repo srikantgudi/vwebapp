@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                font-family: Helvetica;
+            }
+            thead tr:first-child {
+                background-color: #ddd;
+            }
+            td {
+                padding: 0.25rem 0.5rem;
+            }
+            tbody tr:nth-child(even) {
+                background-color: #eee;
+            }
+            nav a {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Vlang Web App</h1>
+        <nav>
+            <a href="/">Home</a>
+            [<a href="/categories">Categories -> Products</a>] [<a
+                href="/customers"
+                >Customers -> Orders -> Details</a
+            >]
+        </nav>
+        <div id="content"></div>
+    </body>
+</html>

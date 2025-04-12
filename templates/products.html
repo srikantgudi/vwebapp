@@ -1,0 +1,23 @@
+<h2>Products</h2>
+<div style="height: 70vh; overflow-y: auto">
+    <table>
+        <thead>
+            <tr>
+                <td width="45%">Name</td>
+                <td width="30%">Quantity per unit</td>
+                <td align="right">Unit price</td>
+                <td align="right">Reorder level</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for r in res
+            <tr>
+                <td>${r["productname"]}</td>
+                <td>${r["quantityperunit"]}</td>
+                <td align="right">${r["unitprice"].f64():12.2f}</td>
+                <td align="right">${r["reorderlevel"]}</td>
+            </tr>
+            @end
+        </tbody>
+    </table>
+</div>

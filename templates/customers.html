@@ -1,0 +1,30 @@
+<div style="display: grid; grid-template-columns: 1fr 2fr">
+    <div>
+        <h2>Customers</h2>
+        <div style="height: 70vh; overflow-y: auto">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>City</td>
+                        <td>Country</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for r in res
+                    <tr
+                        class="hand"
+                        hx-get="/orders/${r['customerid']}"
+                        hx-target="#orders"
+                    >
+                        <td>${r["companyname"]}</td>
+                        <td>${r["city"]}</td>
+                        <td>${r["country"]}</td>
+                    </tr>
+                    @end
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="orders"></div>
+</div>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+    <head>
+        <title>${apptitle}</title>
+        <script src="https://unpkg.com/htmx.org"></script>
+        <style>
+            * {
+                font-family: Helvetica;
+            }
+            html {
+                background: darkslategrey;
+            }
+            body {
+                margin: 1vh 4vw;
+                padding: 0.25rem 1rem;
+                background: whitesmoke;
+                height: 96vh;
+                overflow-y: auto;
+            }
+            thead {
+                position: sticky;
+                top: 0;
+                background-color: #666;
+                color: lightcyan;
+            }
+            td {
+                padding: 0.25rem 0.5rem;
+            }
+            .hand {
+                cursor: pointer;
+            }
+            .note {
+                font-size: 12px;
+            }
+            table {
+                width: 100%;
+            }
+            tbody tr:nth-child(even) {
+                background-color: #eee;
+            }
+            tbody tr:hover {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>${apptitle}</h1>
+        <nav>
+            <a class="hand" href="/">Home</a>
+            [<a class="hand" hx-get="/categories" hx-target="#content"
+                >Categories -> Products</a
+            >] [<a class="hand" hx-get="/customers" hx-target="#content"
+                >Customers -> Orders -> Details</a
+            >]
+        </nav>
+        <div id="content">-- content replaced here --</div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<h2>Order details:: <small>orderid: ${orderid}</small></h2>
+<div style="height: 70vh; overflow-y: auto">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Order Id</td>
+                <td>Product name</td>
+                <td align="right">Quantity</td>
+                <td align="right">Unit price</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for r in res
+            <tr>
+                <td>${r["orderid"]}</td>
+                <td>${r["productname"]}</td>
+                <td align="right">${r["quantity"]}</td>
+                <td align="right">${r["unitprice"].f64():12.2f}</td>
+            </tr>
+            @end
+        </tbody>
+    </table>
+</div>
